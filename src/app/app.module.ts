@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ButtonrasterComponent } from './buttonraster/buttonraster.component';
+import { ButtonComponent } from './button/button.component';
+import { WindowComponent } from './window/window.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProfilComponent
+    ProfilComponent,
+    ButtonrasterComponent,
+    ButtonComponent,
+    WindowComponent
   ],
   imports: [
     BrowserModule,

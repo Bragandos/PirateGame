@@ -1,0 +1,15 @@
+div {
+    position: relative;
+}
+
+p {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: xx-large;
+    padding: 0;
+    bottom: 10px;
+    left: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 0;
+}

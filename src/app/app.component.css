@@ -1,4 +1,9 @@
 .container {
-    padding-left: 300px;
+    padding-left: 250px;
+    padding-top: 150px;
+}
+
+.window {
+    padding-left: 500px;
     padding-top: 150px;
 }
