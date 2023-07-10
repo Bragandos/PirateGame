@@ -1,5 +1,8 @@
 import { Component , Input} from '@angular/core';
+
+
 var punkt = "";
+
 
 @Component({
   selector: 'app-buttonraster',
@@ -11,6 +14,10 @@ export class ButtonrasterComponent {
     punkt = data;
     console.log(data)
   }
+  
   @Input() koorde = "Feld: " + punkt;
+
+
+  
 }
 
