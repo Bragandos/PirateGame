@@ -1,5 +1,9 @@
 div {
     position: relative;
+    
+    width: 100px;
+    height: 100px;
+
 }
 
 p {
@@ -12,4 +16,7 @@ p {
     box-sizing: border-box;
     color: #fff;
     margin: 0;
+}
+p:hover {
+    cursor: default;
 }
