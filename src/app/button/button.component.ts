@@ -1,14 +1,6 @@
 import { Component, Input,EventEmitter, Output } from '@angular/core';
 
 
-var i = 0;
-var wort = '';
-
-if (i == 1){
-  wort = 'assets/image/insel.png ';
-}else{
-  wort = 'assets/image/wasser.png ';
-}
 
 @Component({
   selector: 'app-button',
@@ -19,10 +11,7 @@ if (i == 1){
 export class ButtonComponent {
 
   @Input() anz = "";
-
-  @Input() bild = wort;
-
-
+  bild = 'assets/image/wasser.png';
   @Output() dataEvent = new EventEmitter<string>();
 
   sendData() {
