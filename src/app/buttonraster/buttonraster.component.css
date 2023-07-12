@@ -1,6 +1,10 @@
 
 .ganzes{
- margin-top: -4vw;
+ display: flex;
+ flex-flow: column;
+ justify-content: flex-start;
+ margin-top: -2.5vw;
+
 }
 
 .container{
@@ -9,5 +13,6 @@
 
 }
 .item{
-    width: 100px;
+    flex-wrap: nowrap;
+
 }
