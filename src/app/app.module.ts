@@ -7,6 +7,8 @@ import { ButtonrasterComponent } from './buttonraster/buttonraster.component';
 import { HeaderComponent } from './header/header.component';
 import { WindowComponent } from './window/window.component';
 import { ButtonComponent } from './button/button.component';
+import { ProfilComponent } from './profil/profil.component';
+import { TextlogComponent } from './textlog/textlog.component';
 
 
 
@@ -19,6 +21,8 @@ import { ButtonComponent } from './button/button.component';
     HeaderComponent,
     WindowComponent,
     ButtonComponent,
+    ProfilComponent,
+    TextlogComponent
 
 
   ],

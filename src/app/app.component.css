@@ -1,9 +1,12 @@
 .container {
-    padding-left: 250px;
-    padding-top: 150px;
+
+    padding-top: 2vw;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+
 }
 
-.window {
-    padding-left: 500px;
-    padding-top: 150px;
+.item{
+    margin: 1vw;
 }
