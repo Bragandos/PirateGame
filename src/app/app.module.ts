@@ -14,6 +14,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { TextlogComponent } from './textlog/textlog.component';
 import { LoginComponent } from './login/login.component';
 import { LivegameComponent } from './livegame/livegame.component';
+import { EventboxComponent } from './eventbox/eventbox.component';
 
 
 
@@ -34,7 +35,8 @@ const appRoute: Routes = [
     ProfilComponent,
     TextlogComponent,
     LoginComponent,
-    LivegameComponent
+    LivegameComponent,
+    EventboxComponent
 
 
   ],

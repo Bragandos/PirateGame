@@ -1,8 +1,16 @@
 .game {
-    min-height: 10vw;
+    height: 200px;
+    width: auto;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    overflow: hidden;
-   margin-top: -2vw;
+    margin-top: -1vw;
+    overflow-y: scroll;
+    scrollbar-width: none;  /* Firefox */
+
 }
+
+.example::-webkit-scrollbar {
+    display: none;
+  }
+  
