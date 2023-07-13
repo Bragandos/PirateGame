@@ -11,6 +11,9 @@ img{
     margin: 0.25vw;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
+    width: 100px;
+    height: 100px;
+    
 }
 
 button{

@@ -15,6 +15,7 @@ import { TextlogComponent } from './textlog/textlog.component';
 import { LoginComponent } from './login/login.component';
 import { LivegameComponent } from './livegame/livegame.component';
 import { EventboxComponent } from './eventbox/eventbox.component';
+import { UpgradeShopComponent } from './upgrade-shop/upgrade-shop.component';
 
 
 
@@ -36,7 +37,8 @@ const appRoute: Routes = [
     TextlogComponent,
     LoginComponent,
     LivegameComponent,
-    EventboxComponent
+    EventboxComponent,
+    UpgradeShopComponent
 
 
   ],
