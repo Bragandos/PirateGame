@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./upgrade-shop.component.css']
 })
 export class UpgradeShopComponent {
+  schliessen(): void{
 
+  }
+  hasBackdrop = "true";
 }

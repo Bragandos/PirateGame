@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { LivegameComponent } from './livegame/livegame.component';
 import { EventboxComponent } from './eventbox/eventbox.component';
 import { UpgradeShopComponent } from './upgrade-shop/upgrade-shop.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -38,13 +39,15 @@ const appRoute: Routes = [
     LoginComponent,
     LivegameComponent,
     EventboxComponent,
-    UpgradeShopComponent
+    UpgradeShopComponent,
+
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    OverlayModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [],

@@ -4,6 +4,7 @@
     display: flex;
     flex-flow: row;
     align-self: auto;
+    position: fixed;
 
 }
 

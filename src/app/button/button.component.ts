@@ -16,6 +16,7 @@ export class ButtonComponent {
 
   sendData() {
     const data = "A5";
+    this.bild = 'assets/image/pSchiff.png';
     this.dataEvent.emit(data);
   }
 
