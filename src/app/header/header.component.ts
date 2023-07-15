@@ -2,6 +2,7 @@ import { Overlay, OverlayConfig, OverlayRef , CdkOverlayOrigin} from '@angular/c
 import { Component , QueryList, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import { UpgradeShopComponent } from '../upgrade-shop/upgrade-shop.component';
 import { CdkPortal, ComponentPortal, Portal} from '@angular/cdk/portal';
+import { TextlogComponent } from '../textlog/textlog.component';
 
 
 @Component({
@@ -14,6 +15,12 @@ import { CdkPortal, ComponentPortal, Portal} from '@angular/cdk/portal';
 export class HeaderComponent {
   isOpen = false;
   isMenuOpen: boolean = false;
+
+
+  textlogAdd(){
+
+  }
+
 
 
   @ViewChildren(CdkPortal) templatePortals: QueryList<Portal<any>> | undefined;

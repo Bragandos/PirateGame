@@ -1,5 +1,5 @@
 <div class="button">
 
-    <button (mouseenter)="sendData()"><img src={{bild}} draggable="false" ></button>
+    <button (mouseenter)="sendData()" (mouseleave)="resetData()" (click)="bewegen()"><img src={{bild}} draggable="false" ></button>
     <p style="text-align:center">{{anz}}</p> 
 </div>

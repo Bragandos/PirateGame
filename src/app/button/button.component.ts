@@ -11,13 +11,24 @@ import { Component, Input,EventEmitter, Output } from '@angular/core';
 export class ButtonComponent {
 
   @Input() anz = "";
-  bild = 'assets/image/wasser.png';
+  @Input() bild = 'assets/image/wasser.png';
   @Output() dataEvent = new EventEmitter<string>();
+  @Output() leerEvent = new EventEmitter<string>();
+  @Output() idausgabe = new EventEmitter<number>();
+
+bewegen(){
+
+}
 
   sendData() {
-    const data = "A5";
-    this.bild = 'assets/image/pSchiff.png';
+    const data = "";
     this.dataEvent.emit(data);
+  }
+
+  resetData() {
+    const data = "";
+ //   this.bild = 'assets/image/pSchiff.png';
+    this.leerEvent.emit(data);
   }
 
 }

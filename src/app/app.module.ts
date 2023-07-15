@@ -17,6 +17,7 @@ import { LivegameComponent } from './livegame/livegame.component';
 import { EventboxComponent } from './eventbox/eventbox.component';
 import { UpgradeShopComponent } from './upgrade-shop/upgrade-shop.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
