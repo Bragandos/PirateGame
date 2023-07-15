@@ -11,7 +11,8 @@
             <app-window class="item"></app-window>
           </div>
 
-          <app-textlog class="item" id="textLog"></app-textlog>
+          <button (click)="addText()">Test</button>
+          <app-textlog class="item" id="textLog" [text]="gibText()"></app-textlog>
       </div>
 
 
