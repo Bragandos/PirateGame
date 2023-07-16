@@ -18,6 +18,7 @@ import { EventboxComponent } from './eventbox/eventbox.component';
 import { UpgradeShopComponent } from './upgrade-shop/upgrade-shop.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -49,7 +50,8 @@ const appRoute: Routes = [
     BrowserModule,
     AppRoutingModule,
     OverlayModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

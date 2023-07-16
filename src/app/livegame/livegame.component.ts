@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-livegame',
   templateUrl: './livegame.component.html',
-  styleUrls: ['./livegame.component.css']
+  styleUrls: ['./livegame.component.css'],
+  providers: []
 })
-
 
 
 
 export class LivegameComponent {
   textLogArray: string[] = [];
+
+  
+
+
+  constructor(
+ private http : HttpClient
+) {}; 
+
+ngOnInit(): void{
+  this.testAPI();
+};
 
   getCurrentTime(): string {
     const date = new Date();
@@ -27,10 +39,15 @@ export class LivegameComponent {
 
   }
 
-
-
   gibText(){
 
     return this.textLogArray;
+  }
+
+  testAPI(){
+    const apiUrl = '/api/test';
+    this.http.get<any[]>(apiUrl).subscribe(data => {
+      console.log(data);
+    });
   }
 }
