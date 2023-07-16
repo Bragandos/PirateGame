@@ -11,7 +11,6 @@ import { EventAnzahlServiceService } from '../event-anzahl-service.service';
 export class WindowComponent implements OnInit{
   constructor(private childCountService: EventAnzahlServiceService) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
   
   @Output() childCountChange = new EventEmitter<number>();

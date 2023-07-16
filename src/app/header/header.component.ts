@@ -15,11 +15,8 @@ import { TextlogComponent } from '../textlog/textlog.component';
 export class HeaderComponent {
   isOpen = false;
   isMenuOpen: boolean = false;
+  isDa = false;
 
-
-  textlogAdd(){
-
-  }
 
 
 

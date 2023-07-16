@@ -17,14 +17,15 @@ import { LivegameComponent } from './livegame/livegame.component';
 import { EventboxComponent } from './eventbox/eventbox.component';
 import { UpgradeShopComponent } from './upgrade-shop/upgrade-shop.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RegistrierenComponent } from './registrieren/registrieren.component';
 
 
 
 const appRoute: Routes = [
   {path: '', component: LoginComponent},
   {path: 'livegame', component: LivegameComponent},
+  {path: 'registrieren', component: RegistrierenComponent},
 
 ]
 
@@ -42,6 +43,7 @@ const appRoute: Routes = [
     LivegameComponent,
     EventboxComponent,
     UpgradeShopComponent,
+    RegistrierenComponent,
 
 
 

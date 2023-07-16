@@ -20,9 +20,6 @@ export class LivegameComponent {
  private http : HttpClient
 ) {}; 
 
-ngOnInit(): void{
-  this.testAPI();
-};
 
   getCurrentTime(): string {
     const date = new Date();
@@ -44,10 +41,4 @@ ngOnInit(): void{
     return this.textLogArray;
   }
 
-  testAPI(){
-    const apiUrl = '/api/test';
-    this.http.get<any[]>(apiUrl).subscribe(data => {
-      console.log(data);
-    });
-  }
 }
