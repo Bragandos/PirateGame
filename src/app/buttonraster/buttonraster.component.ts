@@ -71,6 +71,7 @@ ngOnInit() {
     this.buttonsImages.set(i+1, bild);
     this.buttonsOrgImages.set(i+1, bild);
   }
+
   this.playerlocation = 13;
   this.playerlastlocation = 13;
 

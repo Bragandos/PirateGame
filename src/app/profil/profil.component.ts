@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PirateService } from '../services/pirate.service';
 import { PirateDTO } from '../DTO/pirateDTO';
+import { SchiffUpgradeService } from '../services/schiff-upgrade.service';
+import { SchiffupgradeDTO } from '../DTO/schiffUpgradeDTO';
+import { CrewupgradeDTO } from '../DTO/crewUpgradeDTO';
+import { CrewUpgradeService } from '../services/crew-upgrade.service';
 
 @Component({
   selector: 'app-profil',
@@ -15,9 +19,13 @@ export class ProfilComponent implements OnInit{
   @Input() id: number = 0;
 
   private pirate!: PirateDTO;
+  private schiffupgrade!: SchiffupgradeDTO;
+  private crewupgrade!: CrewupgradeDTO;
 
   constructor(
     private pirateservice: PirateService,
+    private sUpgradeservice: SchiffUpgradeService,
+    private cUpgradeservice: CrewUpgradeService
   ) {
 
   }
@@ -33,14 +41,42 @@ getPirateInfo(x: number){
   .subscribe((pirateDTO:PirateDTO[]) => {
     pirateDTO.forEach((dto:PirateDTO) => {
       this.pirate = dto;
-      this.updateProfile();
+      
+      this.getSUpgradeStufe();
+      
+
     })
   })
 }
 
+getSUpgradeStufe(){
+  this.sUpgradeservice
+  .getByID(this.pirate.schiffupgrade)
+  .subscribe((schiffupgradeDTO:SchiffupgradeDTO[]) => {
+    schiffupgradeDTO.forEach((dto:SchiffupgradeDTO) => {
+      this.schiffupgrade = dto;
+      this.getCUpgradeStufe();
+    })
+  })
+
+}
+
+getCUpgradeStufe(){
+  this.cUpgradeservice
+  .getByID(this.pirate.crewupgrade)
+  .subscribe((crewupgradeDTO:CrewupgradeDTO[]) => {
+    crewupgradeDTO.forEach((dto:CrewupgradeDTO) => {
+      this.crewupgrade = dto;
+      this.updateProfile();
+      
+    })
+  })
+
+}
+
 updateProfile(){
   this.gold = this.pirate.geld;
-  this.kampfkraft = this.pirate.crewupgrade + this.pirate.schiffupgrade;
+  this.kampfkraft = this.crewupgrade.kampfstaerke + this.schiffupgrade.kampfstaerke;
   this.name = this.pirate.spieler;
   this.schiffname = this.pirate.schiffname;
 }
