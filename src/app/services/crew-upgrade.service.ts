@@ -14,7 +14,7 @@ export class CrewUpgradeService extends ApiBase{
     super();
   }
 
-  private routeName: string = "CrewUpgrade";
+  private routeName: string = "Crewupgrade";
 
   getAll()
   {
@@ -27,7 +27,7 @@ export class CrewUpgradeService extends ApiBase{
   )
   {
     return this.http
-      .get< CrewupgradeDTO[]>(`${this.url}/${this.routeName}/all/id/${id}`, this.httpOptions );
+      .get< CrewupgradeDTO[]>(`${this.url}/${this.routeName}/all/id_crewupgrade/${id}`, this.httpOptions );
   }
 
   deleteByID(
@@ -35,7 +35,7 @@ export class CrewUpgradeService extends ApiBase{
   )
   {
     return this.http
-      .get< CrewupgradeDTO[]>(`${this.url}/${this.routeName}/delete/id/${id}`, this.httpOptions );
+      .get< CrewupgradeDTO[]>(`${this.url}/${this.routeName}/delete/id_crewupgrade/${id}`, this.httpOptions );
   }
 
   createItem(

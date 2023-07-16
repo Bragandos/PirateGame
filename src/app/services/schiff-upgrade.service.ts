@@ -15,7 +15,7 @@ export class SchiffUpgradeService extends ApiBase{
     super();
   }
 
-  private routeName: string = "SchiffUpgrade";
+  private routeName: string = "Schiffupgrades";
 
 
   getAll()
@@ -29,7 +29,7 @@ export class SchiffUpgradeService extends ApiBase{
   )
   {
     return this.http
-      .get< SchiffupgradeDTO[]>(`${this.url}/${this.routeName}/all/id/${id}`, this.httpOptions );
+      .get< SchiffupgradeDTO[]>(`${this.url}/${this.routeName}/all/id_schiffupgrades/${id}`, this.httpOptions );
   }
 
   createItem(

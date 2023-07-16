@@ -15,9 +15,13 @@ export class ButtonComponent {
   @Input() bild = 'assets/image/wasser.png';
   @Output() dataEvent = new EventEmitter<string>();
   @Output() leerEvent = new EventEmitter<string>();
-  @Output() idausgabe = new EventEmitter<number>();
+  @Output() clickEvent = new EventEmitter<string>();
+
 
 bewegen(){
+  const data = "x";
+  this.clickEvent.emit(data);
+  this.bild = 'assets/image/pSchiff.png'
 
 }
 

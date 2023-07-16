@@ -1,8 +1,10 @@
-import { Component , EventEmitter, Input} from '@angular/core';
+import { Component , EventEmitter, Input, Output} from '@angular/core';
 import { EventAnzahlServiceService } from '../event-anzahl-service.service';
+import { ButtonComponent } from '../button/button.component';
 
 const i = 0;
 
+const aktuellesFeld = 13;
 interface Button{
   id: number;
 }
@@ -68,6 +70,7 @@ bewegen(buttonId : number){
   if (buttonId == 18){  // Runter
     
   }
+
 }
 
 handleData(data: string, x: number) {

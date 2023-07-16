@@ -28,7 +28,7 @@ export class InselnService extends ApiBase{
   )
   {
     return this.http
-      .get< InselDTO[]>(`${this.url}/${this.routeName}/all/id/${id}`, this.httpOptions );
+      .get< InselDTO[]>(`${this.url}/${this.routeName}/all/id_insel/${id}`, this.httpOptions );
   }
 
   deleteByID(
@@ -36,7 +36,7 @@ export class InselnService extends ApiBase{
   )
   {
     return this.http
-      .get< InselDTO[]>(`${this.url}/${this.routeName}/delete/id/${id}`, this.httpOptions );
+      .get< InselDTO[]>(`${this.url}/${this.routeName}/delete/id_insel/${id}`, this.httpOptions );
   }
 
   createItem(
