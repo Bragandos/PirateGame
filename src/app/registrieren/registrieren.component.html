@@ -7,28 +7,26 @@
     />
   </div>
 
-  <div class="logPanel">
+<div class="logPanel">
+
     <div>
+
+    <form (ngSubmit)="signup()">
       <p>Schiffsname</p>
-      <input type="password" name="" id="" />
+      <input type="schiffname" [(ngModel)]="schiffsname" name="schiffname" placeholder="">
       <p>Benutzername</p>
-      <input type="text" name="" id="" />
+      <input type="text" [(ngModel)]="username" name="username" placeholder="">
 
       <p>Passwort</p>
-      <input type="password" name="" id="" />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="">
+
+      <div class="knopfe">
+        <button>Registrieren</button>
+        <button routerLink="/" routerLinkActive="active">Zurück</button>
+      </div>
+
+      <a routerLink="/livegame" routerLinkActive="active"><button>Login umgehen</button></a>
+
+    </form>
     </div>
-
-    <div class="knopfe">
-      <button>Registrieren</button>
-      <button routerLink="/" routerLinkActive="active">Zurück</button>
-    </div>
-
-    <a routerLink="/livegame" routerLinkActive="active">
-      <button>Login umgehen</button></a
-    >
-  </div>
-
-  <div class="titel">
-    <h1>PirateGame</h1>
-  </div>
 </div>
