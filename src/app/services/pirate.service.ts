@@ -58,7 +58,8 @@ export class  PirateService extends ApiBase{
 
   updateByID(
     id: number,
-     pirateObject:  PirateDTO
+     pirateObject:  PirateDTO,
+   
   )
   {
     return this.http

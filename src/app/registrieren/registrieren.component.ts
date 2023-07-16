@@ -37,9 +37,9 @@ export class RegistrierenComponent {
 
     const geld = this.geld !== undefined ? this.geld : 0;
     const feld = this.feld !== undefined ? this.feld : 0;
-    const schiffupgrade = this.schiffupgrade !== undefined ? this.schiffupgrade : 0;
-    const crewupgrade = this.crewupgrade !== undefined ? this.crewupgrade : 0;
-    const id = this.id !== undefined ? this.id : 0;
+    const schiffupgrade = this.schiffupgrade !== undefined ? this.schiffupgrade : 1;
+    const crewupgrade = this.crewupgrade !== undefined ? this.crewupgrade : 1;
+    const id = this.id !== undefined ? this.id : 13;
 
     this.createPirate(this.schiffsname, this.username, this.password, geld, feld, schiffupgrade, crewupgrade, id)
   }

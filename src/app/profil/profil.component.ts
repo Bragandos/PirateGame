@@ -79,6 +79,8 @@ updateProfile(){
   this.kampfkraft = this.crewupgrade.kampfstaerke + this.schiffupgrade.kampfstaerke;
   this.name = this.pirate.spieler;
   this.schiffname = this.pirate.schiffname;
+  this.pirate.feld = 13;
+  this.pirateservice.updateByID(this.pirate.id, this.pirate)
 }
 
 }
