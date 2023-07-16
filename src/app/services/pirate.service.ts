@@ -33,6 +33,13 @@ export class  PirateService extends ApiBase{
       .get< PirateDTO[]>(`${this.url}/${this.routeName}/all/id/${id}`, this.httpOptions );
   }
 
+  getByName(
+    name: string
+  ){
+    return this.http
+      .get< PirateDTO[]>(`${this.url}/${this.routeName}/all/spieler/${name}`, this.httpOptions );
+  }
+
   deleteByID(
     id: number
   )

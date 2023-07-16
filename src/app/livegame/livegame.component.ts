@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { LoginService } from '../services/login.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-livegame',
@@ -10,16 +12,25 @@ import { HttpClient} from '@angular/common/http';
 
 
 
-export class LivegameComponent {
+export class LivegameComponent{
   textLogArray: string[] = [];
+  data: number = 0;
 
-  
 
 
   constructor(
- private http : HttpClient
-) {}; 
+ private http : HttpClient,
+ private login: LoginService,
+ private route: ActivatedRoute
+) {
+  this.data = this.login.data;
+}; 
 
+
+gibId(){
+  console.log(this.data);
+  return this.data;
+}
 
   getCurrentTime(): string {
     const date = new Date();

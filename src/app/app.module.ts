@@ -19,6 +19,7 @@ import { UpgradeShopComponent } from './upgrade-shop/upgrade-shop.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegistrierenComponent } from './registrieren/registrieren.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -54,6 +55,7 @@ const appRoute: Routes = [
     OverlayModule,
     RouterModule.forRoot(appRoute),
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

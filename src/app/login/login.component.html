@@ -14,20 +14,28 @@
 <div class="logPanel">
 
     <div>
-    <p>Benutzername</p>
-    <input type="text" name="" id="">
-    
-    <p>Passwort</p>
-    <input type="password" name="" id="">
+
+    <form (ngSubmit)="login()">
+        <p>Benutzername</p>
+        <input type="text" [(ngModel)]="username" name="username" placeholder="">
+        <p>Passwort</p>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="">
+        
+
+
+        <div class="knopfe">
+            <button type="submit">Anmelden</button>
+            <button routerLink="/registrieren" routerLinkActive="active">Registrieren</button>
+            </div>
+        
+            <a routerLink="/livegame" routerLinkActive="active"> <button>Login umgehen</button></a>
+
+      </form>
+      
     </div>
 
 
-    <div class="knopfe">
-    <button>Anmelden</button>
-    <button routerLink="/registrieren" routerLinkActive="active">Registrieren</button>
-    </div>
 
-    <a routerLink="/livegame" routerLinkActive="active"> <button>Login umgehen</button></a>
 </div>
 
 

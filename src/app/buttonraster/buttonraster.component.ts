@@ -1,5 +1,4 @@
 import { Component , EventEmitter, Input} from '@angular/core';
-import { WindowComponent } from '../window/window.component';
 import { EventAnzahlServiceService } from '../event-anzahl-service.service';
 
 const i = 0;
@@ -80,12 +79,22 @@ leeren(data: string){
 }
 
 gibBild(buttonId : number){
-  if (buttonId == 18){
+  if (buttonId == 1){
     return 'assets/image/insel.png';
   }
   else if (buttonId == 13){
     return 'assets/image/pSchiff.png'
   }
+  else if (buttonId == 9){
+    return 'assets/image/insel.png'
+  }
+  else if (buttonId == 17){
+    return 'assets/image/insel.png'
+  }
+  else if (buttonId == 25){
+    return 'assets/image/insel.png'
+  }
+  
   else{
     return 'assets/image/wasser.png';
   }
