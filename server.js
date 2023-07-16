@@ -31,11 +31,11 @@
  app.get('/pruefung', function(req,res) 
  {     
        var con = mysql.createConnection({
-             database: "_IT",
-             host: "195.37.176.178",
-             port: "20133",
-             user: "21_IT_Test",
-             password: "D~KL?jlHz,@mJHk*j,+6s6w7obtke@jh"
+             database: "pirateGameDB",
+             host: "localhost",
+             port: "3306",
+             user: "root",
+             password: "Armageddon2012#"
         });
    
         con.connect(function(err){

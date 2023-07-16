@@ -87,7 +87,9 @@ gibBild(buttonId : number){
 gibAnz(buttonId : number){
   if (buttonId == 6){
     return '2';
-  }else{
+  }else if (buttonId == 13)
+    return '3';
+  else{
     return '';
   }
 }
