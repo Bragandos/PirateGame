@@ -9,6 +9,6 @@
     <app-button *ngFor="let button of buttons" [anz]="gibAnz(button.id)" [bild]="gibBild(button.id)" (click)="bewegen(button.id)" (dataEvent)="handleData($event, button.id - 1)"
      (leerEvent)="leeren($event)" class="item" [id]="'b' + button.id"></app-button>
   </div>
-  
+
 
 </div>
