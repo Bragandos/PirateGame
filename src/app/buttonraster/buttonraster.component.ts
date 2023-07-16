@@ -1,5 +1,6 @@
 import { Component , EventEmitter, Input} from '@angular/core';
-
+import { WindowComponent } from '../window/window.component';
+import { EventAnzahlServiceService } from '../event-anzahl-service.service';
 
 const i = 0;
 
@@ -18,6 +19,12 @@ interface Button{
 
 })
 export class ButtonrasterComponent {
+
+  childCount: number = 0;
+
+  constructor(private childCountService: EventAnzahlServiceService) {
+    this.childCount = this.childCountService.getChildCount();
+  }
 
   naten: string[] = [
     'A1',
@@ -84,7 +91,8 @@ gibBild(buttonId : number){
   }
 
 }
-gibAnz(buttonId : number){
+gibAnz(buttonId : number){  
+
   if (buttonId == 6){
     return '2';
   }else if (buttonId == 13)
@@ -93,6 +101,8 @@ gibAnz(buttonId : number){
     return '';
   }
 }
+
+
   
 }
 

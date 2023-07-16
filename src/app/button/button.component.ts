@@ -2,6 +2,7 @@ import { Component, Input,EventEmitter, Output } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -10,7 +11,7 @@ import { Component, Input,EventEmitter, Output } from '@angular/core';
 })
 export class ButtonComponent {
 
-  @Input() anz = "";
+  @Input() anz : string | undefined;
   @Input() bild = 'assets/image/wasser.png';
   @Output() dataEvent = new EventEmitter<string>();
   @Output() leerEvent = new EventEmitter<string>();
