@@ -19,9 +19,8 @@ export class LivegameComponent{
 
 
   constructor(
- private http : HttpClient,
  private login: LoginService,
- private route: ActivatedRoute
+
 ) {
   this.data = this.login.data;
 }; 

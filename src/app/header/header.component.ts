@@ -27,5 +27,7 @@ export class HeaderComponent {
 
    }
   
-
+logout(){
+  sessionStorage.removeItem('key');
+}
 }
