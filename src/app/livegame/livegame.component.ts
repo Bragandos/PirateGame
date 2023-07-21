@@ -27,7 +27,6 @@ export class LivegameComponent{
 
 
 gibId(){
-  console.log(this.data);
   return this.data;
 }
 

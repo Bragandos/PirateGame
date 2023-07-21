@@ -21,7 +21,7 @@ export class ButtonComponent {
 bewegen(){
   const data = "x";
   this.clickEvent.emit(data);
-  this.bild = 'assets/image/pSchiff.png'
+ // this.bild = 'assets/image/pSchiff.png'
 
 }
 

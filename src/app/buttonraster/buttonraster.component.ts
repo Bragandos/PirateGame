@@ -79,14 +79,36 @@ ngOnInit() {
 }
 
   bewegen(buttonId : number){
+  let bew = false;
+  //console.log(`Button ${buttonId} was pressed.`);
+  
+  if (this.playerlocation - buttonId == -1 && this.playerlocation % 5 != 0){
+    bew = true;
+  }else if(this.playerlocation - buttonId == 1 && this.playerlocation % 5 != 1){
+    bew = true;
+  }
+  else if (this.playerlocation - buttonId == 5){
+    bew = true;
+  }
+  else if (this.playerlocation - buttonId == -5){
+    bew = true;
+  }
 
-  console.log(`Button ${buttonId} was pressed.`);
+
+  if (bew){
   this.playerlocation = buttonId;
 
-  this.buttonsImages.set(this.playerlocation, 'assets/image/pSchiff.png');
+  if (buttonId == 2 || buttonId == 10 || buttonId == 18) {
+  this.buttonsImages.set(this.playerlocation, 'assets/image/pInsel.png');
+  }else {
+    this.buttonsImages.set(this.playerlocation, 'assets/image/pSchiff.png');
+  }
+
   this.buttonsImages.set(this.playerlastlocation, <string>this.buttonsOrgImages.get(this.playerlastlocation));
 
   this.playerlastlocation = this.playerlocation;
+
+}
 }
 
 handleData(data: string, x: number) {
