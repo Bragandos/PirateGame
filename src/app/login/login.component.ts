@@ -30,7 +30,6 @@ export class LoginComponent {
 
   login() {
     // Perform login logic
-    console.log(this.username, this.password)
    this.getPirateInfo(this.username, this.password );
   }
 
@@ -50,7 +49,6 @@ getPirateInfo(x:string, y :string){
 
 
 updateProfile(x:string,y:string){
-  console.log(this.username, this.password)
   if (x!= null){
     if(y == this.pirate.passwort){
       this.loginService.data = this.pirate.id;

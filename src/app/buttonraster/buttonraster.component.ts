@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import { EventAnzahlServiceService } from '../event-anzahl-service.service';
+import { PirateService } from '../services/pirate.service';
+import { Router } from '@angular/router';
+import { PirateDTO } from '../DTO/pirateDTO';
 
 const i = 0;
 
@@ -14,12 +17,15 @@ interface Button{
 
 })
 export class ButtonrasterComponent implements OnInit {
-
+  @Input() id2: number = 0;
   childCount: number = 0;
   playerlocation: number = 0;
   playerlastlocation: number = 0;
+  private pirate!: PirateDTO;
 
   constructor(
+    private pirateservice: PirateService,
+    private router: Router,
     private childCountService: EventAnzahlServiceService) {
     this.childCount = this.childCountService.getChildCount();
   }
@@ -61,6 +67,8 @@ export class ButtonrasterComponent implements OnInit {
 
 
 ngOnInit() {
+  this.getPirateInfo( this.id2);
+
   for (let i = 0; i < 25; i++) {
     var bild = 'assets/image/wasser.png';
 
@@ -72,10 +80,7 @@ ngOnInit() {
     this.buttonsOrgImages.set(i+1, bild);
   }
 
-  this.playerlocation = 14;
-  this.playerlastlocation = 14;
 
-  this.bewegen(13);
 }
 
   bewegen(buttonId : number){
@@ -95,6 +100,7 @@ ngOnInit() {
   }
 
 
+
   if (bew){
   this.playerlocation = buttonId;
 
@@ -109,7 +115,34 @@ ngOnInit() {
 
   this.playerlastlocation = this.playerlocation;
 
+  this.pirate.feld = this.playerlocation;
+  this.pirateservice.updateByID(this.pirate.id, this.pirate).subscribe(
+    (response) => {
+    }
+  );
+
 }
+}
+
+getPirateInfo(x: number){
+  this.pirateservice
+  .getByID(x)
+  .subscribe((pirateDTO:PirateDTO[]) => {
+    pirateDTO.forEach((dto:PirateDTO) => {
+      this.pirate = dto;
+      
+      console.log(this.pirate, this.id2);
+  
+      const x = this.pirate.feld;
+
+      this.playerlocation = x +1;
+      this.playerlastlocation = x + 1;
+    
+      this.bewegen(x);
+      
+
+    })
+  })
 }
 
 handleData(data: string, x: number) {

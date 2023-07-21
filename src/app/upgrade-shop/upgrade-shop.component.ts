@@ -71,10 +71,14 @@ upgradeSchiff(){
 
 upgradeCrew(){
   if (this.pirate.geld > 100){
-    if (this.pirate.crewupgrade < 7){
+    if (this.pirate.crewupgrade < 6){
       this.pirate.crewupgrade =  this.pirate.crewupgrade + 1;
       this.pirate.geld = this.pirate.geld - 100;
-      this.pirateservice.updateByID(this.pirate.id, this.pirate)
+      this.pirateservice.updateByID(this.pirate.id, this.pirate).subscribe(
+        (response) => {
+          console.log('Crew geupgradet');
+        }
+      );
     }
    
   }
