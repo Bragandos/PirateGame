@@ -11,18 +11,21 @@ import { EventAnzahlServiceService } from '../event-anzahl-service.service';
 export class WindowComponent implements OnInit{
   constructor(private childCountService: EventAnzahlServiceService) { }
   ngOnInit(): void {
+    // get Spieler ID
+    // gib alle spieler wo spieler.feld übereinstimmen
+    // für jeden eintrag createChildren()
   }
   
   @Output() childCountChange = new EventEmitter<number>();
   
   children: any[] = [];
 
-  createChildren() {
+  createChildren(nam: string, zw: string, img:string, option: string) {
       const child = {
-        name: 'Kaptn Barbossa',
-        zwei: 'Kampfkraft: 600 ',
-        eventPic:'assets/image/schiffgross.png',
-        angriffpluendernshop: 'Angriff'
+        name: nam,            //'Kaptn Barbossa',
+        zwei: zw,             //'Kampfkraft: 600 ',
+        eventPic: img,        //'assets/image/schiffgross.png',
+        angriffpluendernshop: option //'Angriff'
       };
       this.children.push(child);
 

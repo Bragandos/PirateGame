@@ -72,8 +72,8 @@ ngOnInit() {
     this.buttonsOrgImages.set(i+1, bild);
   }
 
-  this.playerlocation = 13;
-  this.playerlastlocation = 13;
+  this.playerlocation = 14;
+  this.playerlastlocation = 14;
 
   this.bewegen(13);
 }
@@ -97,6 +97,7 @@ ngOnInit() {
 
   if (bew){
   this.playerlocation = buttonId;
+
 
   if (buttonId == 2 || buttonId == 10 || buttonId == 18) {
   this.buttonsImages.set(this.playerlocation, 'assets/image/pInsel.png');

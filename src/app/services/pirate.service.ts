@@ -62,6 +62,7 @@ export class  PirateService extends ApiBase{
    
   )
   {
+
     return this.http
       .put(`${this.url}/${this.routeName}/update/${id}`,  pirateObject, this.httpOptions );
   }
