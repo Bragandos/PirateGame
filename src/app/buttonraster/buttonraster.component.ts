@@ -23,6 +23,34 @@ export class ButtonrasterComponent implements OnInit {
   playerlastlocation: number = 0;
   private pirate!: PirateDTO;
 
+  private fieldplayers : Map<number, number> = new Map([
+    [1,0],
+    [2,0],
+    [3,0],
+    [4,0],
+    [5,0],
+    [6,0],
+    [7,0],
+    [8,0],
+    [9,0],
+    [10,0],
+    [11,0],
+    [12,0],
+    [13,0],
+    [14,0],
+    [15,0],
+    [16,0],
+    [17,0],
+    [18,0],
+    [19,0],
+    [20,0],
+    [21,0],
+    [22,0],
+    [23,0],
+    [24,0],
+    [25,0],
+  ]);
+
   constructor(
     private pirateservice: PirateService,
     private router: Router,
@@ -62,6 +90,7 @@ export class ButtonrasterComponent implements OnInit {
   buttonsOrgImages = new Map<number, string>();
   buttonsImages = new Map<number, string>();
 
+
   buttons: Button[] = Array(25).fill(0).map((_, index) => ({ id: index + 1 }));
   buttonEventEmitter = new EventEmitter<{ event: any, index: number }>();
 
@@ -79,8 +108,7 @@ ngOnInit() {
     this.buttonsImages.set(i+1, bild);
     this.buttonsOrgImages.set(i+1, bild);
   }
-
-
+  this.getAnzvonDB();
 }
 
   bewegen(buttonId : number){
@@ -121,6 +149,7 @@ ngOnInit() {
     }
   );
 
+  this.getAnzvonDB();
 }
 }
 
@@ -156,17 +185,31 @@ leeren(data: string){
 gibBild(buttonId : number) : string{
   return <string>this.buttonsImages.get(buttonId);
 }
-gibAnz(buttonId : number){
 
-  if (buttonId == 6){
-    return '2';
-  }else if (buttonId == 13)
-    return '3';
-  else{
-    return '';
+getAnzvonDB(){
+  
+  for (let felder = 0; felder < 25; felder++){
+    this.fieldplayers.set(felder,0);
   }
+
+  this.pirateservice
+  .getAll().subscribe((pirateDTO:PirateDTO[]) => {
+    pirateDTO.forEach((dto:PirateDTO) => {
+      if (dto.id !== parseInt(sessionStorage.getItem('key') as string)){
+
+      
+        this.fieldplayers.set(dto.feld, this.fieldplayers.get(dto.feld) as number +1);
+  }
+})
+  })
 }
 
+gibAnz(buttonId : number): string{
+  if (this.fieldplayers.get(buttonId) as number === 0){
+    return '';
+  }
+  return (this.fieldplayers.get(buttonId) as number).toString();
+}
 
 
 }
