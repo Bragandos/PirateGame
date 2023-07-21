@@ -5,6 +5,7 @@ import { SchiffUpgradeService } from '../services/schiff-upgrade.service';
 import { SchiffupgradeDTO } from '../DTO/schiffUpgradeDTO';
 import { CrewupgradeDTO } from '../DTO/crewUpgradeDTO';
 import { CrewUpgradeService } from '../services/crew-upgrade.service';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-profil',
@@ -25,7 +26,9 @@ export class ProfilComponent implements OnInit{
   constructor(
     private pirateservice: PirateService,
     private sUpgradeservice: SchiffUpgradeService,
+    private router: Router,
     private cUpgradeservice: CrewUpgradeService
+    
   ) {
 
   }
@@ -81,6 +84,15 @@ updateProfile(){
   this.schiffname = this.pirate.schiffname;
   this.pirate.feld = 13;
   this.pirateservice.updateByID(this.pirate.id, this.pirate)
+}
+
+delete(id: number){
+  this.pirateservice.deleteByID(id).subscribe(
+    (response) => {
+      console.log('Spieler erfolgreich gelöscht');
+      this.router.navigate(['']);
+    }
+  );
 }
 
 }

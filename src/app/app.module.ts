@@ -27,7 +27,7 @@ const appRoute: Routes = [
   {path: '', component: LoginComponent},
   {path: 'livegame', component: LivegameComponent},
   {path: 'registrieren', component: RegistrierenComponent},
-
+  
 ]
 
 
@@ -45,8 +45,6 @@ const appRoute: Routes = [
     EventboxComponent,
     UpgradeShopComponent,
     RegistrierenComponent,
-
-
 
   ],
   imports: [

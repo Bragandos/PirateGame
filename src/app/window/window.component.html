@@ -1,8 +1,8 @@
 <div class="game">
 
 
-
-    <button (click)="createChildren()">Create Children</button>
+  <h1>Eventlog</h1>
+  <button (click)="createChildren()">Create Children</button>
   <div *ngFor="let child of children; let i = index">
     <app-eventbox [name]="child.name" [zweiteoption]="child.zwei" [eventPic]="child.eventPic" [angriffpluendernshop]="child.angriffpluendernshop" ></app-eventbox>
   </div>
