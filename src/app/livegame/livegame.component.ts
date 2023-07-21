@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 
-export class LivegameComponent{
+export class LivegameComponent implements OnInit{
   textLogArray: string[] = [];
   data: number = 0;
 
@@ -23,7 +23,17 @@ export class LivegameComponent{
 
 ) {
   this.data = this.login.data;
-}; 
+
+
+}
+
+ngOnInit(): void {
+    const x = sessionStorage.getItem("key");
+    if (x != null){
+      this.data = parseInt(x);
+    }
+  }
+; 
 
 
 gibId(){

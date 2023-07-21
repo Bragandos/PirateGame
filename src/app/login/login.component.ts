@@ -52,6 +52,7 @@ updateProfile(x:string,y:string){
   if (x!= null){
     if(y == this.pirate.passwort){
       this.loginService.data = this.pirate.id;
+      const x = this.pirate.id.toString();
     sessionStorage.setItem('key', x);
       this.router.navigate(['/livegame'])
     }
