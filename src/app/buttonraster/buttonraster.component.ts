@@ -1,8 +1,13 @@
-import {Component, EventEmitter, Input, OnInit} from '@angular/core';
-import { EventAnzahlServiceService } from '../event-anzahl-service.service';
+import {Component, EventEmitter, Input, OnInit, ViewChild} from '@angular/core';
+import { EventAnzahlServiceService } from '../services/event-anzahl-service.service';
 import { PirateService } from '../services/pirate.service';
 import { Router } from '@angular/router';
 import { PirateDTO } from '../DTO/pirateDTO';
+import { WindowComponent } from '../window/window.component';
+import { EventDTO } from '../DTO/eventDTO';
+import { CommLinkService } from '../services/comm-link.service';
+import { InselnService } from '../services/inseln.service';
+import { InselDTO } from '../DTO/inselnDTO';
 
 const i = 0;
 
@@ -22,6 +27,10 @@ export class ButtonrasterComponent implements OnInit {
   playerlocation: number = 0;
   playerlastlocation: number = 0;
   private pirate!: PirateDTO;
+  private inselArray: Array<InselDTO> = [];
+
+
+
 
   private fieldplayers : Map<number, number> = new Map([
     [1,0],
@@ -53,8 +62,11 @@ export class ButtonrasterComponent implements OnInit {
 
   constructor(
     private pirateservice: PirateService,
+    private inselservice: InselnService,
     private router: Router,
-    private childCountService: EventAnzahlServiceService) {
+    private childCountService: EventAnzahlServiceService,
+    private commLink: CommLinkService) {
+    
     this.childCount = this.childCountService.getChildCount();
   }
 
@@ -95,8 +107,10 @@ export class ButtonrasterComponent implements OnInit {
   buttonEventEmitter = new EventEmitter<{ event: any, index: number }>();
 
 
+
 ngOnInit() {
   this.getPirateInfo( this.id2);
+  this.getInseln();
 
   for (let i = 0; i < 25; i++) {
     var bild = 'assets/image/wasser.png';
@@ -108,7 +122,7 @@ ngOnInit() {
     this.buttonsImages.set(i+1, bild);
     this.buttonsOrgImages.set(i+1, bild);
   }
-  this.getAnzvonDB();
+
 }
 
   bewegen(buttonId : number){
@@ -149,7 +163,10 @@ ngOnInit() {
     }
   );
 
-  this.getAnzvonDB();
+    
+
+
+ this.getAnzvonDB();
 }
 }
 
@@ -160,7 +177,6 @@ getPirateInfo(x: number){
     pirateDTO.forEach((dto:PirateDTO) => {
       this.pirate = dto;
       
-      console.log(this.pirate, this.id2);
   
       const x = this.pirate.feld;
 
@@ -168,10 +184,19 @@ getPirateInfo(x: number){
       this.playerlastlocation = x + 1;
     
       this.bewegen(x);
-      
+      this.getAnzvonDB();
 
     })
   })
+}
+
+getInseln(){
+  this.inselservice.getAll()
+  .subscribe((inselDTOS:InselDTO[]) => {
+    inselDTOS.forEach((dto:InselDTO) =>{
+      this.inselArray.push(dto);
+    })
+  });
 }
 
 handleData(data: string, x: number) {
@@ -187,21 +212,48 @@ gibBild(buttonId : number) : string{
 }
 
 getAnzvonDB(){
-  
+  let counter = 0;
   for (let felder = 0; felder < 25; felder++){
     this.fieldplayers.set(felder,0);
   }
-
   this.pirateservice
   .getAll().subscribe((pirateDTO:PirateDTO[]) => {
     pirateDTO.forEach((dto:PirateDTO) => {
-      if (dto.id !== parseInt(sessionStorage.getItem('key') as string)){
-
-      
+      if (dto.id !== this.pirate.id){      
         this.fieldplayers.set(dto.feld, this.fieldplayers.get(dto.feld) as number +1);
+      }
+    });
+    this.inselservice.getAll()
+    .subscribe((inselDTOS:InselDTO[]) => {
+      inselDTOS.forEach((dto:InselDTO) =>{
+        if (this.playerlocation === dto.feld && dto.feld != 18){
+          counter++;
+          this.commLink.dataArray.push(  { name: dto.name, zwei: 'Goldmenge: '+ dto.wert , eventPic: 'assets/image/insel1.png', angriffpluendernshop :'Plündern'});
+          this.commLink.changed = true;
+        }
+        if (this.playerlocation === dto.feld && dto.feld == 18){
+          counter++;
+          this.commLink.dataArray.push(  { name: dto.name, zwei: '' , eventPic: 'assets/image/hafen.png', angriffpluendernshop :'Shop'});
+          this.commLink.changed = true;
+        }
+      })
+    });
+    pirateDTO.forEach((dto:PirateDTO) => {
+      
+      if (dto.id !== this.pirate.id && this.playerlocation === dto.feld){  
+        counter++;
+        this.commLink.dataArray.push(  { name: dto.schiffname, zwei: 'Kampfkraft: '+ (dto.crewupgrade*50 + dto.schiffupgrade*50) , eventPic: 'assets/image/schiffgross.png', angriffpluendernshop :'Angriff'});
+        this.commLink.changed = true;
+      }
+      if (counter === 0){
+        this.commLink.dataArray = [];
+        this.commLink.changed = true;
+      }
+    })
   }
-})
-  })
+  
+  )
+  
 }
 
 gibAnz(buttonId : number): string{

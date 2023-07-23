@@ -5,6 +5,20 @@
         <p>{{name}}</p>
         <p>{{zweiteoption}}</p>
     </div>
-  <button>{{angriffpluendernshop}}</button>
+  <button (click)="eventOption()"
+  type="button"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+  
+  >{{angriffpluendernshop}}</button>
+
+
+  <ng-template cdkConnectedOverlay cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayHasBackdrop]="true" [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen"
+  (detach)="isOpen = false" (backdropClick)="isOpen = false">
+
+      <app-upgrade-shop></app-upgrade-shop>
+
+  </ng-template>
 
 </div>

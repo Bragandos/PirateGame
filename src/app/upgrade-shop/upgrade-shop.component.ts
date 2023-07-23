@@ -56,8 +56,6 @@ upgradeSchiff(){
     if (this.pirate.schiffupgrade < 6){
       this.pirate.schiffupgrade =  this.pirate.schiffupgrade + 1;
       this.pirate.geld = this.pirate.geld - 100;
-
-      console.log(this.pirate);
       this.pirateservice.updateByID(this.pirate.id, this.pirate).subscribe(
         (response) => {
           console.log('Schiff geupgradet');

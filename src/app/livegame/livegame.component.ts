@@ -33,7 +33,25 @@ ngOnInit(): void {
       this.data = parseInt(x);
     }
   }
-; 
+  
+  kampfLotto(value1: number, value2: number): string {
+    // Add the two values together
+    const combinedValue = value1 + value2;
+  
+    // Calculate the percentage of each value
+    const percentageValue1 = (value1 / combinedValue) * 100;
+    const percentageValue2 = (value2 / combinedValue) * 100;
+  
+    // Generate a random number between 0 and 100
+    const randomPercentage = Math.random() * 100;
+  
+    // Determine the winner based on the random percentage
+    if (randomPercentage <= percentageValue1) {
+      return `Value 1 (${value1}) is the winner!`;
+    } else {
+      return `Value 2 (${value2}) is the winner!`;
+    }
+  }
 
 
 gibId(){
@@ -49,6 +67,7 @@ gibId(){
   }
 
   addText(){
+    console.log(this.kampfLotto(100,300));
     const tex = 'Käptn Jake hat Käptn Barbossa bezwungen!';
     const textex = this.getCurrentTime() + " " + tex + "\n";
     this.textLogArray.push(textex);
